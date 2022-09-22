@@ -5,6 +5,7 @@ from asyncio import events
 import discord
 from discord.ext import commands
 
+# since discord version 2.0 this code below is necesary to run the bot DO NOT ERASE
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -26,4 +27,4 @@ async def actualizar(ctx):
 
 
 client.run(
-    'MTAyMTg1MDMzODI2Njk5Mjc1MQ.G7XjEz.BIBJZs7qUMVwFGCv465splwlw8hIwmLE4iuK7g')
+    'your token here')

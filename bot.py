@@ -1,9 +1,13 @@
-
+import json
 import sys
 import os
 from asyncio import events
 import discord
 from discord.ext import commands
+
+import github_wrapper
+
+USER_TOKEN = os.getenv('USER_TOKEN')
 
 # since discord version 2.0 this code below is necesary to run the bot DO NOT ERASE
 intents = discord.Intents.default()
@@ -20,10 +24,13 @@ async def on_ready():
 
 @client.command()
 async def actualizar(ctx):
-    await ctx.send("Datos actualizados :blush:")
-    # this code below allows the bot to restart itself after the command, might be useful in the future but in the meantime is not
+    notifications = json.loads(github_wrapper.getNotifications(USER_TOKEN))
 
-    # os.execv(sys.executable, ['python'] + sys.argv)
+    message = "\n".join(list(map(github_wrapper.generateNotificationMessage, notifications)))
+    print(message[:2000])
+
+    await ctx.send(f"{message[:2000]}")
+
 
 
 client.run(

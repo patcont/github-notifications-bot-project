@@ -25,6 +25,6 @@ async def actualizar(ctx):
 
     # os.execv(sys.executable, ['python'] + sys.argv)
 
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
-client.run(
-    'your token here')
+client.run(DISCORD_TOKEN)

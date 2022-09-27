@@ -4,9 +4,11 @@ import os
 from asyncio import events
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
 
 import github_wrapper
 
+load_dotenv('.env')
 USER_TOKEN = os.getenv('USER_TOKEN')
 
 # since discord version 2.0 this code below is necesary to run the bot DO NOT ERASE

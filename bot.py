@@ -4,6 +4,12 @@ import os
 from asyncio import events
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+
+import github_wrapper
+
+load_dotenv('.env')
+USER_TOKEN = os.getenv('USER_TOKEN')
 
 import github_wrapper
 
@@ -32,6 +38,6 @@ async def actualizar(ctx):
     await ctx.send(f"{message[:2000]}")
 
 
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
-client.run(
-    'your token here')
+client.run(DISCORD_TOKEN)

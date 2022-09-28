@@ -1,7 +1,10 @@
 import json
 import http.client
 import os
+
+
 from dotenv import load_dotenv
+
 
 def getNotifications(token):
     conn = http.client.HTTPSConnection("api.github.com")
@@ -19,7 +22,9 @@ def generateNotificationMessage(n):
     return f"Reason: {n['reason']} - {n['subject']['title']} - {n['subject']['type']}"
 
 if __name__ == '__main__':
+
     load_dotenv('.env')
+
     USER_TOKEN = os.getenv('USER_TOKEN')
 
     notifications = json.loads(getNotifications(USER_TOKEN))

@@ -28,14 +28,21 @@ if __name__ == '__main__':
     USER_TOKEN = os.getenv('USER_TOKEN')
 
     notifications = json.loads(getNotifications(USER_TOKEN))
+
+    print(notifications)
+
+    # out_file = open("myfile.json", "w")
+    # json.dump(notifications, out_file, indent = 6)
+    # out_file.close()
+
     message = "\n".join(list(map(generateNotificationMessage, notifications)))
-    
-    print(message)
+
+    # print(message)
     # print("\n".join(message))
 
     #for notification in notifications:
     #    print(f"Reason: {notification['reason']} - {notification['subject']['title']} - {notification['subject']['type']}")
 
-    print(type(notifications).__name__)
+    # print(type(notifications).__name__)
 
 
